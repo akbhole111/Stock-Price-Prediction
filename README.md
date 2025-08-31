@@ -65,12 +65,14 @@ The dataset is simplified into two columns:
 
 ds: dates in datetime format.
 y: closing prices (numeric).
+
 Step 2: Model Components
 Prophet models time series as a sum of:
 
 Trend – long-term movement (growth or decline).
 Seasonality – repeating cycles (weekly, yearly, daily).
 Holidays/Events – special dates that affect the time series (optional).
+
 Step 3: Model Training
 When fitting, Prophet automatically detects trend and seasonality patterns. It uses an additive model where these components are combined to explain the stock price movements.
 
