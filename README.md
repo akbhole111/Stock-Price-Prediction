@@ -40,9 +40,9 @@ ARIMA works best on stationary time series (no trend, constant mean/variance ove
 Step 2: Model Components
 ARIMA is built from three terms:
 
-AR (p) – the autoregressive part, using past values to predict the future.
-I (d) – the integrated part, which involves differencing to make the series stationary.
-MA (q) – the moving average part, which uses past forecast errors to improve predictions.
+* AR (p) – the autoregressive part, using past values to predict the future.
+* I (d) – the integrated part, which involves differencing to make the series stationary.
+* MA (q) – the moving average part, which uses past forecast errors to improve predictions.
 So, the model is denoted ARIMA(p, d, q).
 
 Step 3: Model Fitting
@@ -63,15 +63,15 @@ Once trained, ARIMA produces forecasts for the next n steps. Since ARIMA is line
 Step 1: Data Preparation
 The dataset is simplified into two columns:
 
-ds: dates in datetime format.
-y: closing prices (numeric).
+* ds: dates in datetime format.
+* y: closing prices (numeric).
 
 Step 2: Model Components
 Prophet models time series as a sum of:
 
-Trend – long-term movement (growth or decline).
-Seasonality – repeating cycles (weekly, yearly, daily).
-Holidays/Events – special dates that affect the time series (optional).
+* Trend – long-term movement (growth or decline).
+* Seasonality – repeating cycles (weekly, yearly, daily).
+* Holidays/Events – special dates that affect the time series (optional).
 
 Step 3: Model Training
 When fitting, Prophet automatically detects trend and seasonality patterns. It uses an additive model where these components are combined to explain the stock price movements.
@@ -82,9 +82,9 @@ You extend the timeline into the future (e.g., next 30 days). Prophet generates 
 Step 5: Visualization
 Prophet provides clear plots:
 
-Forecast with actual vs predicted values.
-Component plots for trend and seasonality.
-Prophet is interpretable and fast but may not capture very sudden or highly non-linear movements compared to LSTM.
+* Forecast with actual vs predicted values.
+* Component plots for trend and seasonality.
+* Prophet is interpretable and fast but may not capture very sudden or highly non-linear movements compared to LSTM.
 
 * **Purpose**: Forecasting model developed by Facebook.
 * **Why used**: Handles **trend, seasonality, and holidays** with minimal tuning.
@@ -98,15 +98,16 @@ Prophet is interpretable and fast but may not capture very sudden or highly non-
 Step 1: Data Preparation
 Stock prices are sequential, so LSTM is ideal because it captures long-term dependencies.
 
-The closing prices are normalized (scaled to a small range like [0,1]).
-Data is split into training and testing sets.
-The series is then converted into input-output pairs, where past n days are used to predict the next day’s price.
+* The closing prices are normalized (scaled to a small range like [0,1]).
+* Data is split into training and testing sets.
+* The series is then converted into input-output pairs, where past n days are used to predict the next day’s price.
+
 Step 2: LSTM Architecture
 LSTM is a type of recurrent neural network (RNN) that avoids the vanishing gradient problem by using memory cells and gates. These gates decide:
 
-What to keep from the past (long-term memory).
-What to forget (irrelevant history).
-What new information to add.
+* What to keep from the past (long-term memory).
+* What to forget (irrelevant history).
+* What new information to add.
 This makes LSTMs powerful for time-series forecasting compared to ARIMA.
 
 Step 3: Model Training
